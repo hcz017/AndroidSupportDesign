@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         mTvContent = (TextView) findViewById(R.id.tv_content);
+        customNaviMenu(navigationView);
+    }
+
+    public void customNaviMenu(NavigationView navigationView){
+        //取消显示统一配色（即显示本色）
+        navigationView.setItemIconTintList(null);
+        // TODO: 2017/4/6  如何让item文字显示不同的颜色，和icon一致？
     }
 
     @Override
