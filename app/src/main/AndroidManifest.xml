@@ -22,6 +22,9 @@
         <activity
             android:name=".ScrollingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ScrollingNoClps"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

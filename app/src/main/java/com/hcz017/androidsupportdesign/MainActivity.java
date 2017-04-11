@@ -108,7 +108,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             mTvContent.setText("Manage");
         } else if (id == R.id.nav_share) {
-            mTvContent.setText("Share");
+            Intent mScrollingNoClpsIntent = new Intent(this, ScrollingNoClps.class);
+            startActivity(mScrollingNoClpsIntent);
         } else if (id == R.id.nav_send) {
             Intent mScrollingIntent = new Intent(this, ScrollingActivity.class);
             startActivity(mScrollingIntent);
