@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView mTvContent;
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //获得头像ImageView
+        View headerView = navigationView.getHeaderView(0);
+        CircleImageView ivAvatar = (CircleImageView) headerView.findViewById(R.id.profile_image);
+        ivAvatar.setImageResource(R.drawable.avatar);
 
         mTvContent = (TextView) findViewById(R.id.tv_content);
         customNaviMenu(navigationView);
