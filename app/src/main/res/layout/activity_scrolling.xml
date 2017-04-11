@@ -20,8 +20,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@android:color/transparent"
+            app:statusBarScrim="@android:color/transparent">
+            <!--
+            Collapsing title 收缩的title
+            Content scrim  收缩后子布局覆盖的颜色
+                app:contentScrim="@android:color/transparent"
+            Status bar scrim  收缩后状态蓝的颜色
+                app:statusBarScrim="@android:color/black"
+            Parallax scrolling children 子布局滑动方式
+                app:layout_collapseMode="parallax"
+            Pinned position children(useful for toolbar)
+                app:layout_collapseMode="pin"
+            -->
+            <!--折叠布局内添加一张图片-->
+            <ImageView
+                android:id="@+id/img_scroll_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/collapsing_background"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg"
+                app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
