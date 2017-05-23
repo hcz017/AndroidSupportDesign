@@ -101,8 +101,9 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         String title = null;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_anim_vct_dw) {
+            fragment = new AnimatedVectorDrawableFragment();
+            title = getString(R.string.recycler_view_title);
         } else if (id == R.id.nav_recycler) {
             fragment = new RecyclerViewFragment();
             title = getString(R.string.recycler_view_title);

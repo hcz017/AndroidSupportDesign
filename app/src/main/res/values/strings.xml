@@ -56,4 +56,6 @@
     <string name="fab">FloatingActionButton</string>
     <string name="recycler_view_title">RecyclerView</string>
     <string name="cat">Cat</string>
+    <string name="login">Login</string>
+    <string name="user_name">User Name</string>
 </resources>

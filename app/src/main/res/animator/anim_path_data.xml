@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--平移-->
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_quad"
+        android:propertyName="pathData"
+        android:valueFrom="M0,8 L3,8"
+        android:valueTo="M25,8 L25,8"
+        android:valueType="pathType" />
+</set>

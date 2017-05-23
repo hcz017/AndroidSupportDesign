@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/result_wrong">
+    <target
+        android:name="wrong1"
+        android:animation="@animator/anim_result1" />
+    <target
+        android:name="wrong2"
+        android:animation="@animator/anim_result2" />
+</animated-vector>

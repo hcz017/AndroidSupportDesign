@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--strokeColor 颜色渐变-->
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="strokeColor"
+        android:repeatMode="restart"
+        android:valueFrom="@android:color/holo_blue_bright"
+        android:valueTo="@color/colorAccent"
+        android:valueType="colorType" />
+</set>
