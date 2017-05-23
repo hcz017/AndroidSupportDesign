@@ -47,4 +47,12 @@
     </string>
     <string name="collapsing_background">collapsingBackground</string>
     <string name="search">search</string>
+
+    <string name="snack_bar">Login</string>
+    <string name="input_words">Input Words</string>
+    <string name="error">words must long than 6</string>
+    <string name="username">User name</string>
+    <string name="input_pswd">Password</string>
+    <string name="fab">FloatingActionButton</string>
+
 </resources>
