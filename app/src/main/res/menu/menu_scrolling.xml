@@ -4,7 +4,7 @@
       tools:context="com.hcz017.androidsupportdesign.ScrollingActivity">
     <item
         android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:icon="@drawable/ic_search"
         android:title="@string/search"
         app:showAsAction="ifRoom"/>
 
