@@ -54,5 +54,6 @@
     <string name="username">User name</string>
     <string name="input_pswd">Password</string>
     <string name="fab">FloatingActionButton</string>
-
+    <string name="recycler_view_title">RecyclerView</string>
+    <string name="cat">Cat</string>
 </resources>

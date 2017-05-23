@@ -8,9 +8,9 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Import"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_recycler"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"/>
+            android:title="RecyclerView"/>
     </group>
     <!--若要添加横线，必须添加id,checkableBehavior="none" 表示不可选中-->
     <group android:checkableBehavior="none"

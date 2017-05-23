@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:cardPreventCornerOverlap="false"
+        card_view:cardUseCompatPadding="true">
+
+        <!--精简控件，提高效率-->
+        <!--图片格式转换，缩减体积-->
+        <TextView
+            android:id="@+id/card_txt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/pic_1"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/cat" />
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

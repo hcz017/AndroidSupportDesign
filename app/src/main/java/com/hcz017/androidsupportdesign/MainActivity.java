@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +21,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String TAG = "MainActivity";
     private TextView mTvContent;
+    private NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +38,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //获得头像ImageView
@@ -43,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         CircleImageView ivAvatar = (CircleImageView) headerView.findViewById(R.id.profile_image);
         ivAvatar.setImageResource(R.drawable.avatar);
 
-        mTvContent = (TextView) findViewById(R.id.tv_content);
+//        mTvContent = (TextView) findViewById(R.id.tv_content);
         customNaviMenu(navigationView);
     }
 
@@ -89,22 +95,38 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
         int id = item.getItemId();
+        navigationView.setCheckedItem(id);
+        Fragment fragment = null;
+        String title = null;
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            mTvContent.setText("Gallery");
+        } else if (id == R.id.nav_recycler) {
+            fragment = new RecyclerViewFragment();
+            title = getString(R.string.recycler_view_title);
         } else if (id == R.id.nav_slideshow) {
-            mTvContent.setText("Slideshow");
+//            mTvContent.setText("Slideshow");
         } else if (id == R.id.nav_manage) {
-            mTvContent.setText("Manage");
+//            mTvContent.setText("Manage");
         } else if (id == R.id.nav_share) {
             Intent mScrollingNoClpsIntent = new Intent(this, ScrollingNoClps.class);
             startActivity(mScrollingNoClpsIntent);
         } else if (id == R.id.nav_send) {
             Intent mScrollingIntent = new Intent(this, ScrollingActivity.class);
             startActivity(mScrollingIntent);
+        }
+        
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+        // set the toolbar title
+        if (fragment != null && getSupportActionBar() != null) {
+            Log.d(TAG, "displayView: title " + title);
+            getSupportActionBar().setTitle(title);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -113,8 +135,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClick(View view){
-        Intent secActivityIntent = new Intent(this, SecActivity.class);
-        startActivity(secActivityIntent);
+        switch (view.getId()) {
+            case R.id.fab:
+                Intent secActivityIntent = new Intent(this, SecActivity.class);
+                startActivity(secActivityIntent);
+                break;
+            default:
+                break;
+        }
     }
-
 }
