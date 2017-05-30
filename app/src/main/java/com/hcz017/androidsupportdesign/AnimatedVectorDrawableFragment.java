@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 public class AnimatedVectorDrawableFragment extends Fragment implements View.OnClickListener {
     private Button mBtnLogin;
+    private Button mBtnLogin2;
     private ImageView mIvBottom;
     private ImageView mIvResult;
     private EditText mEdtUserName;
@@ -25,6 +26,7 @@ public class AnimatedVectorDrawableFragment extends Fragment implements View.OnC
                              Bundle savedInstanceState) {
         View parentView = inflater.inflate(R.layout.animated_vector_drawable, container, false);
         mBtnLogin = (Button) parentView.findViewById(R.id.btn_login);
+        mBtnLogin2 = (Button) parentView.findViewById(R.id.btn_login2);
         mIvBottom = (ImageView) parentView.findViewById(R.id.iv_bottom);
         mIvResult = (ImageView) parentView.findViewById(R.id.iv_result);
         mEdtUserName = (EditText) parentView.findViewById(R.id.edt_username);
@@ -48,6 +50,11 @@ public class AnimatedVectorDrawableFragment extends Fragment implements View.OnC
         ((Animatable) mIvStrimPathEnd1.getDrawable()).start();
 
         mBtnLogin.setOnClickListener(this);
+
+        AnimatedVectorDrawable loginClick = (AnimatedVectorDrawable) getContext().getDrawable(R.drawable.dr_btn2_bg);
+        mBtnLogin2.setBackground(loginClick);
+        mBtnLogin2.setOnClickListener(this);
+
         return parentView;
     }
 
@@ -58,6 +65,9 @@ public class AnimatedVectorDrawableFragment extends Fragment implements View.OnC
                 initAnimator();
                 ((Animatable) mIvBottom.getDrawable()).start();
                 ((Animatable) mBtnLogin.getBackground()).start();
+                break;
+            case R.id.btn_login2:
+                ((Animatable) mBtnLogin2.getBackground()).start();
                 break;
             default:
                 break;

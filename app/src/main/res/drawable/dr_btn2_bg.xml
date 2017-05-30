@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/btn_bg">
+    <target
+        android:name="button"
+        android:repeatCount="1"
+        android:animation="@animator/anim_start0" />
+    <target
+        android:name="button2"
+        android:repeatCount="1"
+        android:animation="@animator/anim_end0" />
+</animated-vector>

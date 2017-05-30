@@ -4,6 +4,11 @@
     android:viewportHeight="24.0"
     android:viewportWidth="24.0">
     <path
+        android:name="button2"
+        android:pathData="M0,12 L24,12"
+        android:strokeColor="@color/colorPrimary"
+        android:strokeWidth="20" />
+    <path
         android:name="button"
         android:pathData="M0,12 L24,12"
         android:strokeColor="@color/colorAccent"
