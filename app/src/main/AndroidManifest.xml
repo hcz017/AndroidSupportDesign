@@ -28,6 +28,10 @@
         <activity
             android:name=".SecActivity"
             android:label="@string/fab" />
+        <activity
+            android:name=".MyTabLayout"
+            android:label="@string/tab_layout"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

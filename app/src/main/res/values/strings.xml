@@ -58,4 +58,16 @@
     <string name="cat">Cat</string>
     <string name="login">Login</string>
     <string name="user_name">User Name</string>
+
+    <!--TabLayout-->
+    <string name="tab_layout">TabLayout</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="vibrant">Vibrant</string>
+    <string name="vibrant_dark">Vibrant dark</string>
+    <string name="vibrant_light">Vibrant light</string>
+    <string name="muted">Muted</string>
+    <string name="muted_dark">Muted dark</string>
+    <string name="muted_light">Muted light</string>
 </resources>

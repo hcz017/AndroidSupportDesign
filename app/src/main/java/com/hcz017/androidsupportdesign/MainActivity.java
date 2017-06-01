@@ -101,22 +101,35 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         String title = null;
 
-        if (id == R.id.nav_anim_vct_dw) {
-            fragment = new AnimatedVectorDrawableFragment();
-            title = getString(R.string.recycler_view_title);
-        } else if (id == R.id.nav_recycler) {
-            fragment = new RecyclerViewFragment();
-            title = getString(R.string.recycler_view_title);
-        } else if (id == R.id.nav_slideshow) {
+
+        switch (id) {
+            case R.id.nav_anim_vct_dw:
+                fragment = new AnimatedVectorDrawableFragment();
+                title = getString(R.string.recycler_view_title);
+                break;
+            case R.id.nav_recycler:
+                fragment = new RecyclerViewFragment();
+                title = getString(R.string.recycler_view_title);
+                break;
+            case R.id.nav_slideshow:
 //            mTvContent.setText("Slideshow");
-        } else if (id == R.id.nav_manage) {
+                break;
+            case R.id.nav_manage:
 //            mTvContent.setText("Manage");
-        } else if (id == R.id.nav_share) {
-            Intent mScrollingNoClpsIntent = new Intent(this, ScrollingNoClps.class);
-            startActivity(mScrollingNoClpsIntent);
-        } else if (id == R.id.nav_send) {
-            Intent mScrollingIntent = new Intent(this, ScrollingActivity.class);
-            startActivity(mScrollingIntent);
+                break;
+            case R.id.nav_share:
+                Intent mScrollingNoClpsIntent = new Intent(this, ScrollingNoClps.class);
+                startActivity(mScrollingNoClpsIntent);
+                break;
+            case R.id.nav_send:
+                Intent mScrollingIntent = new Intent(this, ScrollingActivity.class);
+                startActivity(mScrollingIntent);
+                break;
+            case R.id.nav_tab_layout:
+                Intent tabLayoutIntent = new Intent(this, MyTabLayout.class);
+                startActivity(tabLayoutIntent);
+            default:
+                break;
         }
         
         if (fragment != null) {
