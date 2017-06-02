@@ -1,5 +1,7 @@
 package com.hcz017.androidsupportdesign;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,15 +10,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MyTabLayout extends AppCompatActivity {
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -74,8 +80,54 @@ public class MyTabLayout extends AppCompatActivity {
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             mTabLayout.getTabAt(i).setText(imgNames[i]).setIcon(imgRes[i]);
         }
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                changeColor(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
+    public void changeColor(final int position) {
+        int tabPosition = position;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imgRes[tabPosition]);
+//        setToolbarColor(bitmap);
+        /*同步
+        Palette palette = Palette.from(bitmap).generate();
+        Palette.Swatch swatch = palette.getVibrantSwatch();
+        mTabLayout.setBackgroundColor(swatch.getRgb());*/
+
+        // 异步 Palette的部分
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                //获取到充满活力的这种色调
+                Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+
+                //根据调色板Palette获取到图片中的颜色设置到toolbar和tab中背景，标题等，使整个UI界面颜色统一
+                // Set the toolbar background and text colors
+                if (vibrantSwatch != null) {
+                    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                    toolbar.setBackgroundColor(vibrantSwatch.getRgb());
+                    toolbar.setTitleTextColor(vibrantSwatch.getTitleTextColor());
+                    mTabLayout.setBackgroundColor(vibrantSwatch.getRgb());
+                    Window window = getWindow();
+                    window.setStatusBarColor((vibrantSwatch.getRgb()));
+                    window.setNavigationBarColor((vibrantSwatch.getRgb()));
+                }
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,6 +162,12 @@ public class MyTabLayout extends AppCompatActivity {
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         private ImageView imageView;
+        private TextView mVibrant;
+        private TextView mDarkVibrant;
+        private TextView mLightVibrant;
+        private TextView mMuted;
+        private TextView mDarkMuted;
+        private TextView mLightMuted;
 
         public PlaceholderFragment() {
         }
@@ -133,7 +191,40 @@ public class MyTabLayout extends AppCompatActivity {
             imageView = (ImageView) rootView.findViewById(R.id.imageView);
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
             imageView.setImageResource(imgRes[position]);
+            mVibrant = (TextView) rootView.findViewById(R.id.tv_vibrant);
+            mDarkVibrant = (TextView) rootView.findViewById(R.id.tv_vibrant_dark);
+            mLightVibrant = (TextView) rootView.findViewById(R.id.tv_vibrant_light);
+            mMuted = (TextView) rootView.findViewById(R.id.tv_muted);
+            mDarkMuted = (TextView) rootView.findViewById(R.id.tv_muted_dark);
+            mLightMuted = (TextView) rootView.findViewById(R.id.tv_muted_light);
+            changeColor();
             return rootView;
+        }
+
+        public void changeColor() {
+            int position = getArguments().getInt(ARG_SECTION_NUMBER);
+
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imgRes[position]);
+            // 异步 Palette的部分
+            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                @Override
+                public void onGenerated(Palette palette) {
+                    //获取到充满活力的这种色调
+                    Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+                    Palette.Swatch vibrantDarkSwatch = palette.getDarkVibrantSwatch();
+                    Palette.Swatch vibrantLightSwatch = palette.getLightVibrantSwatch();
+                    Palette.Swatch mutedSwatch = palette.getMutedSwatch();
+                    Palette.Swatch darkMutedSwatch = palette.getDarkMutedSwatch();
+                    Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
+
+                    mVibrant.setBackgroundColor(vibrantDarkSwatch != null ? vibrantSwatch.getRgb() : 0xffffff);
+                    mDarkVibrant.setBackgroundColor(vibrantDarkSwatch != null ? vibrantDarkSwatch.getRgb() : 0xffffff);
+                    mLightVibrant.setBackgroundColor(vibrantLightSwatch != null ? vibrantLightSwatch.getRgb() : 0xffffff);
+                    mMuted.setBackgroundColor(mutedSwatch != null ? mutedSwatch.getRgb() : 0xffffff);
+                    mDarkMuted.setBackgroundColor(darkMutedSwatch != null ? darkMutedSwatch.getRgb() : 0xffffff);
+                    mLightMuted.setBackgroundColor(lightMutedSwatch != null ? lightMutedSwatch.getRgb() : 0xffffff);
+                }
+            });
         }
     }
 
