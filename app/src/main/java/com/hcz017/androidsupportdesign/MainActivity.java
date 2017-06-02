@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.nav_anim_vct_dw:
                 fragment = new AnimatedVectorDrawableFragment();
-                title = getString(R.string.recycler_view_title);
+                title = getString(R.string.animated_vector_drawable);
                 break;
             case R.id.nav_recycler:
                 fragment = new RecyclerViewFragment();
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View view){
         switch (view.getId()) {
             case R.id.fab:
-                Intent secActivityIntent = new Intent(this, SecActivity.class);
+                Intent secActivityIntent = new Intent(this, InputLayout.class);
                 startActivity(secActivityIntent);
                 break;
             default:

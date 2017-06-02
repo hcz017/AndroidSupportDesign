@@ -9,7 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
-public class SecActivity extends AppCompatActivity {
+public class InputLayout extends AppCompatActivity {
 
     TextInputLayout textInputLayout;
 
