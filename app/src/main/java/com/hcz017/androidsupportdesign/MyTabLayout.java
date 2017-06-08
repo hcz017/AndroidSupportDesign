@@ -68,8 +68,8 @@ public class MyTabLayout extends AppCompatActivity {
     public static int[] imgRes;
 
     private void customTabs() {
-        imgRes = new int[]{R.mipmap.chrysanthemum, R.mipmap.hydrangeas, R.mipmap.jellyfish,
-                R.mipmap.penguins, R.mipmap.tulips};
+        imgRes = new int[]{R.drawable.chrysanthemum, R.drawable.hydrangeas, R.drawable.jellyfish,
+                R.drawable.penguins, R.drawable.tulips};
         String[] imgNames = {"chrysanthemum", "hydrangeas", "jellyfish", "penguins", "tulips"};
 
         //如果用R.color 会显示黑色，不知道为什么
