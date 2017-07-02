@@ -25,6 +25,11 @@ android {
     }
     productFlavors {
     }
+    splits{
+        density{
+            enable true
+        }
+    }
 }
 
 dependencies {
