@@ -39,12 +39,12 @@
 ## 注意点
 
 CollapsingToolbarLayout有一个属性可以设置在折叠状态时状态栏的颜色：
-`app:contentScrim="?attr/colorPrimary"`一般会写成透明或者半透明
+`app:statusBarScrim="?attr/colorPrimary"`一般会写成透明或者半透明
 但是我发现，在写了这一行代码后没有生效，即颜色还是默认的颜色（colorPrimary）。
 后调查发现：
 
 不管是
-1. 在布局文件里设置
+1. 在布局文件里设置状态栏颜色
    ```xml
     <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -55,12 +55,13 @@ CollapsingToolbarLayout有一个属性可以设置在折叠状态时状态栏的
             app:statusBarScrim="@android:color/holo_purple"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
    ```
-2. 还是在java代码里设置
+2. 还是在java代码里设置状态栏颜色
    ```java
        collapsingToolbarLayout.setStatusBarScrimColor(Color.GREEN);
    ```
 
-都需要先对状态栏先进行透明度的设置，三种方法：
+都需要先对状态栏的透明度设置一下，上面的代码才会生效，为啥会这样？暂时没研究。
+设置状态栏透明度的三种方法：
 1. 在style.xml中增加下面的代码把状态栏设置成全透明
    ```xml
         <item name="android:statusBarColor">@android:color/transparent</item>
