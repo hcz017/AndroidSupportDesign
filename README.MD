@@ -4,7 +4,7 @@
 
 ## 效果图
 
-![](http://7sbojw.com1.z0.glb.clouddn.com//asd/NavigationView.png?imageView/2/w/500)
+![](./_image/asd/NavigationView.png)
 
 ## 注意点
 
@@ -26,7 +26,7 @@
 
 **有个坑**，就是状态栏的下端有时候会看到一个内阴影，找了一下发现原来是内容布局的根节点设置了`android:fitsSystemWindows="true"`，这个不需要哈，删了之后就显示成平面的了。下面是对比图：
 
-![](http://7sbojw.com1.z0.glb.clouddn.com//asd/status_diff.png)
+![](./_image/asd/status_diff.png)
 
 # CollapsingToolbarLayout
 
@@ -34,7 +34,7 @@
 
 这其实是个对比图
 
-![](http://7sbojw.com1.z0.glb.clouddn.com/ADW_collapsingToolbarLayout.gif)
+![](./_image/asd/ADW_collapsingToolbarLayout.gif)
 
 ## 注意点
 
@@ -86,26 +86,26 @@ PS：不要吐槽审美，为了凸显效果才这样的。
 # TextInputLayout和Snackbar
 ## 效果图
 
-![](http://7sbojw.com1.z0.glb.clouddn.com//asd/inputlayout&snkb.gif)
+![](./_image/asd/inputlayout&snkb.gif)
 
 ## 注意点
 想要Snackbar可以滑动消除，需要把它放在CoordinatorLayout里面
 # RecyclerView
 ## 效果图
 
-![](http://7sbojw.com1.z0.glb.clouddn.com/recyvlerview.gif)
+![](./_image/asd/recyvlerview.gif)
 
 这个没啥说的
 # AnimatedVectorDrawable
 ## 效果图
 
-![](http://7sbojw.com1.z0.glb.clouddn.com//asd/animatedVectorDrawable.gif)
+![](./_image/asd/animatedVectorDrawable.gif)
 
 矢量图动画，另外还有tween animation等没加进来。
 # TabLayout
 ## 效果图
 
-![](http://7sbojw.com1.z0.glb.clouddn.com//asd/tablayout.gif)
+![](./_image/asd/tablayout.gif)
 
 和palette一起应用的
 
